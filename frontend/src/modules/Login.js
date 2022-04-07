@@ -19,12 +19,7 @@ export default function Login() {
     <div className="main">
       <div className="navbar containerr">
         <div className="row">
-          <div className="icon col-4 col-lg-4 col-md-4">
-            <h2 className="logo">
-              American <br />
-              x2
-            </h2>
-          </div>
+          <div className="icon col-4 col-lg-4 col-md-4"></div>
 
           <div className="menu col-4 col-lg-4 col-md-4">
             <ul>
@@ -85,11 +80,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-      {/* <Switch>
-        <Routes>
-          <Route path="/meetting" element={<Meetting />} />
-        </Routes>
-      </Switch> */}
     </div>
   );
 }

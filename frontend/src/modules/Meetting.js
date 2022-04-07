@@ -3,7 +3,6 @@ import a from "./styleMeeting.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Routes, Route, Link } from "react-router-dom";
 
 const tabStudent = [
   {
@@ -92,18 +91,8 @@ export default function Meetting() {
   };
   return (
     <div className="student">
-      <div className="logo">
-        <h2 className="logo_main">
-          American <br /> x2
-        </h2>
-      </div>
-      <div className="logo-hoc10">
-        <img
-          src="https://hoc10.vn/assets/img/updated_logo.png"
-          width={"150px"}
-          alt="ảnh lỗi"
-        ></img>
-      </div>
+      <div className="logo"></div>
+
       <div className="tab_student">
         <div className="container text-center">
           <Slider {...settings}>
@@ -143,8 +132,8 @@ export default function Meetting() {
         <div className="containerr">
           <div className="row">
             <div className="col-lg-3 col-3 wb">
-              <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>Web
-              back
+              <i class="fa fa-leanpub" aria-hidden="true"></i>
+              Dashboard
             </div>
             <div className="col-lg-3 col-3 chtt">
               <i class="fa fa-chain-broken" aria-hidden="true"></i> Interactive
