@@ -54,3 +54,32 @@ export const BOOK_LANGUAGE = [
     showGraph: "Show graph",
   },
 ];
+export const INNER_WIDTH = {
+  DESKTOP: 1440,
+  LAPTOP: 1366,
+  IPAD: 1110,
+  MOBILE: 500,
+};
+export const FONTSIZES = [
+  { value: 8, label: "8" },
+  { value: 12, label: "12" },
+  { value: 14, label: "14" },
+  { value: 16, label: "16" },
+  { value: 18, label: "18" },
+  { value: 20, label: "20" },
+  { value: 22, label: "22" },
+  { value: 24, label: "24" },
+  { value: 26, label: "26" },
+  { value: 32, label: "32" },
+  { value: 48, label: "48" },
+  { value: 96, label: "96" },
+];
+export const COLOR_ORANGE = "#ff7707";
+
+export const LINEWIDTHS = [
+  { value: 2, label: "2" },
+  { value: 4, label: "4" },
+  { value: 8, label: "8" },
+  { value: 12, label: "12" },
+  { value: 20, label: "20" },
+];

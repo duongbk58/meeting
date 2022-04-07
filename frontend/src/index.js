@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import {StrictMode} from 'react';
+import "font-awesome/css/font-awesome.min.css";
+
+// ✅ now importing from react-dom/client
 import reportWebVitals from './reportWebVitals';
 
 // import "bootstrap/dist/js/bootstrap.min.js";

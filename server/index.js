@@ -15,10 +15,16 @@ socketIo.on("connection", (socket) => {
 
   socket.emit("getId", socket.id);
 
-  socket.on("sendDataClient", function(data) {
+  //game dnd
+  socket.on("sendDataListQuestion", function(data) {
     console.log(data)
-    socketIo.emit("sendDataServer", { data });
+    socketIo.emit("sendDataServerListQuestion", { data });
   })
+  socket.on("sendDataListAnswer", function(data) {
+    console.log(data)
+    socketIo.emit("sendDataServerListAnswer", { data });
+  })
+  //end game dnd
 
   socket.on("disconnect", () => {
     console.log("Client disconnected");
