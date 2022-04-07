@@ -28,7 +28,7 @@ export function formatListDataQuestion(data) {
 }
 
 export function formatQuestionTitle(data) {
-  const dataIcon = data.icon_list[0]?.icons.filter(
+  const dataIcon = data.icon_list[0]?.icons.find(
     (icon) => icon.icon_id == data.game_config.title_question?.icon_id
   );
   return dataIcon;

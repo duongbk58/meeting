@@ -8,6 +8,8 @@ export const URL_AUDIO =
   "https://hvegjijo7jobj.vcdn.cloud/upload/cms_platform/audio/";
 export const URL_IMAGE_QUESTION =
   "https://hvegjijo7jobj.vcdn.cloud/upload/cms_platform/images/hdr/";
+export const AUDIO_VICTORY =
+  "https://hvegjijo7jobj.vcdn.cloud/upload/web/mp3/victory.mp3";
 export const TYPE_VIETNAMESE = 1;
 export const TYPE_ENGLISH = 2;
 export const BOOK_LANGUAGE = [
@@ -54,3 +56,15 @@ export const BOOK_LANGUAGE = [
     showGraph: "Show graph",
   },
 ];
+
+export const TypeGameMultipleChoice = {
+  IMAGE: "image",
+  AUDIO: "audio",
+  TEXT: "text",
+  VIDEO: "video",
+  IMG_IMG: 1,
+  IMG_TEXT_TEXT: 2,
+  IMG_TEXT_IMAGE_TEXT: 3,
+  TEXT_TEXT: 4,
+  IMAGE_TEXT: 5,
+};

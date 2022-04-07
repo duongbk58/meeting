@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { Tooltip } from "reactstrap";
-import { BOOK_LANGUAGE } from "../../../../constants/type";
 
 const ButtonReset = ({
   onResetData,
   isDislabeled = true,
-  languageBook,
   className = "mt-4",
 }) => {
   const [tooltipOpen, setTooltipOpen] = useState(false);
@@ -14,23 +12,21 @@ const ButtonReset = ({
     <div className={`${className} text-right pr-3 pl-3`}>
       <button
         onClick={() => onResetData()}
+        style={{ backgroundColor: "#00c2f3" }}
         disabled={isDislabeled}
         className={`${
           isDislabeled ? "monkey-bg-gray" : "monkey-bg-blue"
         } btn cursor monkey-color-white`}
         id="tooltip-reset-drap-drop"
       >
-        <i className="fa fa-repeat" aria-hidden="true"></i>
+        <i class="fa fa-repeat" aria-hidden="true"></i>
       </button>
       <Tooltip
         isOpen={tooltipOpen}
         target="tooltip-reset-drap-drop"
         toggle={toggle}
       >
-        {
-          BOOK_LANGUAGE.filter((ele) => ele.id == languageBook)[0]
-            ?.buttonRefresh
-        }
+        Làm lại
       </Tooltip>
     </div>
   );
