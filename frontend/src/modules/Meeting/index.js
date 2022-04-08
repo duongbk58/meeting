@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import DrapAndDropImageContainer from "components/games/Dnd/DragAndDropImageContainer";
 import MatchBackGroundContainer from "components/games/MatchBackGround/MatchBackGroundContainer";
+import Quiz from "components/games/Quiz";
 import BoardContainer from "modules/BoardContainer/BoardContainer";
 
 export default function Meeting() {
@@ -464,7 +465,9 @@ export default function Meeting() {
       <div className="student-share">
         <div className="containerr">
           <div className="row">
-            <>
+            {/* {show && <DrapAndDropImageContainer data={data} />} */}
+            {/* {show && <MatchBackGroundContainer data={data1} dataDefault={data1}/>} */}
+            <Quiz></Quiz>
               {showBoard && <BoardContainer />}
               {/* {show && <DrapAndDropImageContainer data={data} />} */}
               {show && (

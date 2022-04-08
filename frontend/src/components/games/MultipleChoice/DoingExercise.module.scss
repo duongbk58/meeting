@@ -1,0 +1,49 @@
+.questionWrapper {
+  padding: 0 1.5rem;
+  border-radius: 10px;
+}
+
+.borderRad7 {
+  border-radius: 7px;
+}
+
+.imgQuestion {
+  flex: 1;
+  img {
+    transition: 1s;
+    z-index: 1;
+  }
+}
+
+.videoQuestion {
+  flex: 1;
+}
+
+.audioAnswer {
+  top: 5px;
+  left: 18px;
+  z-index: 1;
+}
+
+.iconAudio {
+  top: 5px;
+  left: 10px;
+  &:hover {
+    color: #00c2f3;
+  }
+  i {
+    font-size: 14px;
+  }
+}
+
+.imgAnswer {
+  img {
+    transform: scale(1, 1);
+    transition: 1s;
+    &:hover {
+      transform: scale(2, 2);
+      transition: 1s;
+      z-index: 1;
+    }
+  }
+}

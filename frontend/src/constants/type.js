@@ -12,6 +12,10 @@ export const URL_IMAGE_QUESTION =
   "https://hvegjijo7jobj.vcdn.cloud/upload/cms_platform/images/hdr/";
 export const TYPE_VIETNAMESE = 1;
 export const TYPE_ENGLISH = 2;
+export const RESULT = {
+  _FALSE: 1,
+  _TRUE: 2,
+};
 export const BOOK_LANGUAGE = [
   {
     id: TYPE_VIETNAMESE,
