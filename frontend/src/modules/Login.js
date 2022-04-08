@@ -58,7 +58,7 @@ export default function Login() {
           <div className="col-lg-6 col-6 col-md-6 mt-4">
             <div className="form">
               <div>
-                <h2>Login</h2>
+                <h2>MEETING</h2>
               </div>
               <input
                 value={name}
@@ -70,14 +70,14 @@ export default function Login() {
                 placeholder="User name"
               />
               <br />
-              <input type="password" name="Code" placeholder="Code" />
+              {/* <input type="password" name="Code" placeholder="Code" /> */}
               <br />
 
               <button
                 className="btnn"
                 onClick={() => history.push(`/meeting/${name}`)}
               >
-                Submit
+                Join meeting
               </button>
             </div>
           </div>

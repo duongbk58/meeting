@@ -1,0 +1,217 @@
+.sc-JEhMO {
+  width: 50px;
+}
+.kiYFIh.tool-desktop {
+  transform: translate(19px, 47px);
+
+  top: 20%;
+}
+// .sc-cjrPHo {
+//   width: 100vw !important;
+//   overflow: hidden;
+// }
+.kiYFIh {
+  position: absolute;
+  z-index: 16;
+}
+.react-draggable {
+  cursor: grab;
+}
+ul[class] {
+  list-style: none;
+}
+.hHGuBP {
+  list-style: none;
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  border: 1px solid rgb(222, 226, 230);
+}
+.p-1 {
+  padding: 0.25rem !important;
+}
+
+ul {
+  margin: 0;
+}
+.ml-2,
+.mx-2 {
+  margin-left: 0.5rem !important;
+}
+.custom-switch {
+  padding-left: 2.25rem;
+}
+.custom-control {
+  position: relative;
+  z-index: 1;
+  display: block;
+  min-height: 1.5rem;
+  padding-left: 1.5rem;
+  -webkit-print-color-adjust: exact;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+.custom-control-input {
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  width: 1rem;
+  height: 1.25rem;
+  opacity: 0;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+input {
+  overflow: visible;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+}
+.custom-control-label {
+  position: relative;
+  margin-bottom: 0;
+  vertical-align: top;
+}
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+.hHGuBP .custom-control-input:checked ~ .custom-control-label::before {
+  border-color: rgb(255, 119, 7);
+  background-color: rgb(255, 119, 7);
+}
+.custom-control-input:checked ~ .custom-control-label:before {
+  color: #fff;
+  border-color: #007bff;
+  background-color: #007bff;
+}
+.custom-switch .custom-control-label:before {
+  left: -2.25rem;
+  width: 1.75rem;
+  pointer-events: all;
+  border-radius: 0.5rem;
+}
+.custom-control-label:before,
+.custom-file-label,
+.custom-select {
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+.custom-control-label:after,
+.custom-control-label:before {
+  position: absolute;
+  top: 0.25rem;
+  left: -1.5rem;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  content: "";
+}
+.custom-control-label:before {
+  pointer-events: none;
+  background-color: #fff;
+  border: 1px solid #adb5bd;
+}
+.custom-switch .custom-control-input:checked ~ .custom-control-label:after {
+  background-color: #fff;
+  transform: translateX(0.75rem);
+}
+.custom-switch .custom-control-label:after {
+  top: calc(0.25rem + 2px);
+  left: calc(-2.25rem + 2px);
+  width: calc(1rem - 4px);
+  height: calc(1rem - 4px);
+  background-color: #adb5bd;
+  border-radius: 0.5rem;
+  transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.custom-control-label:after {
+  background: 50%/50% 50% no-repeat;
+}
+.custom-control-label:after,
+.custom-control-label:before {
+  position: absolute;
+  top: 0.25rem;
+  left: -1.5rem;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  content: "";
+}
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+li {
+  background-color: rgb(255, 255, 255);
+  padding: 3px 0px 3px 0px;
+}
+.eqOVjq {
+  position: relative;
+  width: 40px;
+}
+.gonXMq {
+  position: relative;
+  width: 40px;
+}
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+.gBrASl {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(238, 238, 238);
+  color: rgb(33, 37, 41);
+  background-color: rgb(255, 255, 255);
+}
+.rounded {
+  border-radius: 0.25rem !important;
+}
+.btn-group-sm > .btn,
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+}
+.gonXMq::after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  border-bottom: 8px solid rgb(33, 37, 41);
+  border-left: 8px solid transparent;
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+}
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+.evqKLp {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(238, 238, 238);
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 119, 7);
+}
