@@ -11,7 +11,6 @@ import BoardContainer from "modules/BoardContainer/BoardContainer";
 import Booktoll from "modules/Booktoll";
 import Quiz from "components/games/Quiz";
 
-
 export default function Meeting() {
   let data = {
     game_id: 477,
@@ -464,11 +463,6 @@ export default function Meeting() {
     <>
       <div className="student">
         <Header />
-
-      <div className="student-share">
-        <div className="containerr">
-          <div className="row">
-      
         <div className="student-share">
           <div className="containerr">
             <div className="row">
@@ -484,7 +478,6 @@ export default function Meeting() {
 
               {showBoard && <Booktoll />}
             </div>
-
           </div>
         </div>
       </div>

@@ -38,13 +38,10 @@ export default function AnswerItem({
                   handlePlaying();
                 }}
               />
-              {answer?.icon[0]?.props && (
-                answer?.icon[0]?.props[0]?.text
-              )}
+              {answer?.icon[0]?.props && answer?.icon[0]?.props[0]?.text}
               <span className="checkmark"></span>
             </Checkbox>
           </div>
-        
         </PAnswer>
       </label>
     </div>
@@ -62,6 +59,7 @@ const PAnswer = styled.div`
   margin: 5px;
 `;
 const Checkbox = styled.label`
+  margin-top: 10px;
   &.container {
     position: relative;
     padding-left: 28px;
@@ -81,7 +79,7 @@ const Checkbox = styled.label`
     }
     .checkmark {
       position: absolute;
-      top: 25px;
+      top: 15px;
       transform: translateY(-50%);
       left: 8px;
       height: 20px;
