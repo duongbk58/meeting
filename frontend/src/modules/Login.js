@@ -1,20 +1,10 @@
 import React from "react";
 import a from "./StyleLogin.scss";
 // import ReactDOM from "react-dom";
-import { useForm } from "react-hook-form";
 // import { BrowserRouter as Routes } from "react-router-dom";
 import { Link, Switch } from "react-router-dom";
 
 export default function Login() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => {};
-
-  console.log(watch("example"));
   return (
     <div className="main">
       <div className="navbar containerr">
