@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import socketIOClient from "socket.io-client";
 import "./App.css";
-import DragAndDropImageContainer from "./components/games/Dnd/DragAndDropImageContainer";
-import MultipleChoice from "./components/games/Mtc";
 import Login from "./modules/Login";
 import Meeting from "./modules/Meeting";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";

@@ -51,6 +51,7 @@ const DrapAndDropImageContainer = ({ data, objectId }) => {
       socketRef.current.disconnect();
     };
   }, []);
+  
   useEffect(() => {
     setInputData({ ...data.game_config });
   }, [data]);
