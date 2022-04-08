@@ -29,7 +29,7 @@ export function formatListDataQuestion(data) {
 
 export function formatQuestionTitle(data) {
   const dataIcon = data.icon_list[0]?.icons.filter(
-    (icon) => icon.icon_id == data.game_config.title_question?.icon_id
+    (icon) => icon.icon_id == data.game_config.question_title?.icon_id
   );
   return dataIcon;
 }

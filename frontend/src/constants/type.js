@@ -2,6 +2,8 @@ export const AUDIO_ERROR =
   "https://hvegjijo7jobj.vcdn.cloud/upload/web/mp3/wrong_sound.wav";
 export const AUDIO_SUCCESS =
   "https://hvegjijo7jobj.vcdn.cloud/upload/web/mp3/answer_ding.mp3";
+export const AUDIO_VICTORY =
+  "https://hvegjijo7jobj.vcdn.cloud/upload/web/mp3/victory.mp3";
 export const AUDIO_DRAG =
   "https://hvegjijo7jobj.vcdn.cloud/upload/web/mp3/audio_drag.mp3";
 export const URL_AUDIO =
