@@ -1,6 +1,14 @@
 import { useEffect } from "react";
+import Booktoll from "modules/Booktoll";
 
-const Footer = ({ show, setShow, showBoard, setShowBoard }) => {
+const Footer = ({
+  show,
+  setShow,
+  showBoard,
+  setShowBoard,
+  setShowBooktoll,
+  showBooktoll,
+}) => {
   useEffect(() => {}, []);
   return (
     <>
@@ -12,7 +20,7 @@ const Footer = ({ show, setShow, showBoard, setShowBoard }) => {
               onClick={() => setShowBoard(!showBoard)}
             >
               <i class="fa fa-leanpub" aria-hidden="true"></i>
-              Dashboard
+              Writeboard
             </div>
             <div className="col-lg-3 col-3 chtt" onClick={() => setShow(!show)}>
               <i class="fa fa-chain-broken" aria-hidden="true"></i> Interactive

@@ -8,7 +8,9 @@ import DrapAndDropImageContainer from "components/games/Dnd/DragAndDropImageCont
 import MatchBackGroundContainer from "components/games/MatchBackGround/MatchBackGroundContainer";
 
 import BoardContainer from "modules/BoardContainer/BoardContainer";
+import Booktoll from "modules/Booktoll";
 import Quiz from "components/games/Quiz";
+
 
 export default function Meeting() {
   let data = {
@@ -452,6 +454,7 @@ export default function Meeting() {
   };
   const [show, setShow] = useState(true);
   const [showBoard, setShowBoard] = useState(false);
+  const [showBooktoll, setShowBooktoll] = useState(false);
   const url = useParams();
 
   useEffect(() => {
@@ -462,18 +465,26 @@ export default function Meeting() {
       <div className="student">
         <Header />
 
+      <div className="student-share">
+        <div className="containerr">
+          <div className="row">
+      
         <div className="student-share">
           <div className="containerr">
             <div className="row">
               {/* {show && <DrapAndDropImageContainer data={data} />} */}
               {/* {show && <MatchBackGroundContainer data={data1} dataDefault={data1}/>} */}
               <Quiz></Quiz>
+
               {/* {showBoard && <BoardContainer />} */}
               {/* {show && <DrapAndDropImageContainer data={data} />} */}
               {/* {show && (
                 <MatchBackGroundContainer data={data1} dataDefault={data1} />
               )} */}
+
+              {showBoard && <Booktoll />}
             </div>
+
           </div>
         </div>
       </div>
@@ -484,6 +495,8 @@ export default function Meeting() {
         setShow={setShow}
         showBoard={showBoard}
         setShowBoard={setShowBoard}
+        setShowBooktoll={setShowBooktoll}
+        showBooktoll={showBooktoll}
       />
     </>
   );
