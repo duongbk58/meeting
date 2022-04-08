@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import DrapAndDropImageContainer from "components/games/Dnd/DragAndDropImageContainer";
 import MatchBackGroundContainer from "components/games/MatchBackGround/MatchBackGroundContainer";
+import BoardContainer from "modules/BoardContainer/BoardContainer";
 
 export default function Meeting() {
   let data = {
@@ -448,6 +449,7 @@ export default function Meeting() {
     ],
   };
   const [show, setShow] = useState(true);
+  const [showBoard, setShowBoard] = useState(false);
   const url = useParams();
 
   useEffect(() => {
@@ -462,15 +464,24 @@ export default function Meeting() {
       <div className="student-share">
         <div className="containerr">
           <div className="row">
-            {/* {show && <DrapAndDropImageContainer data={data} />} */}
-            {show && (
-              <MatchBackGroundContainer data={data1} dataDefault={data1} />
-            )}
+            <>
+              {showBoard && <BoardContainer />}
+              {/* {show && <DrapAndDropImageContainer data={data} />} */}
+              {show && (
+                <MatchBackGroundContainer data={data1} dataDefault={data1} />
+              )}
+            </>
           </div>
         </div>
       </div>
 
-      <Footer data={data} show={show} setShow={setShow} />
+      <Footer
+        data={data}
+        show={show}
+        setShow={setShow}
+        showBoard={showBoard}
+        setShowBoard={setShowBoard}
+      />
     </div>
   );
 }
