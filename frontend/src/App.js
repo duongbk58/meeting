@@ -1,218 +1,100 @@
-import React, { useState, useEffect, useRef } from "react";
-import socketIOClient from "socket.io-client";
-import "./App.css";
-import DragAndDropImageContainer from "./components/games/Dnd/DragAndDropImageContainer";
-import MultipleChoice from "./components/games/Mtc";
-import DrawingBoard from "./components/DrawingBoard"
-const host = "http://localhost:3000";
+import React from 'react';
+
+import './App.css';
+
+declare var ZoomMtg
+
+ZoomMtg.setZoomJSLib('https://source.zoom.us/2.2.0/lib', '/av');
+
+ZoomMtg.preLoadWasm();
+ZoomMtg.prepareWebSDK();
+// loads language files, also passes any error messages to the ui
+ZoomMtg.i18n.load('en-US');
+ZoomMtg.i18n.reload('en-US');
 
 function App() {
-  const [mess, setMess] = useState([]);
-  const [message, setMessage] = useState("");
-  const [id, setId] = useState();
 
-  const socketRef = useRef();
-  const messagesEnd = useRef();
+  // signatureEndpoint = 'http://localhost:4000'
+  // apiKey = 'xu3asdfaJPaA_RJW2-9l5_HAaLA'
+  // meetingNumber = '123456789'
+  // role = 0
+  // leaveUrl = 'http://localhost:3000'
+  // userName = 'React'
+  // userEmail = ''
+  // passWord = ''
+  // registrantToken = ''
+  // setup your signature endpoint here: https://github.com/zoom/meetingsdk-sample-signature-node.js
 
-  let data = 
-    {
-      game_id: 477,
-      icon_list: [
-        {
-          language: "vi",
-          icons: [
-            {
-              icon_id: "C1.L94.P4.A2",
-              path: "cQyRdcC2R5M52PTb8cclrOv5JljDH8xM.png",
-              type_media: 1,
-              props: [],
-              tracing: [],
-              comparision: [],
-            },
-            {
-              icon_id: "C1.L94.P4.A2.Q",
-              path: "",
-              type_media: 1,
-              props: [
-                {
-                  key: "name_1",
-                  text: "2. Ti\u1ebfng n\u00e0o c\u00f3 v\u1ea7n anh? Ti\u1ebfng n\u00e0o c\u00f3 v\u1ea7n ach?",
-                  audio: [{ path: "", voice_id: 56, sync_data: "" }],
-                },
-              ],
-            },
-            {
-              icon_id: "C1.L94.P4.A2.t1",
-              path: "dExUv0qalh0Tt6NRw4zzpY3v8jC98D00.png",
-              type_media: 1,
-              props: [
-                {
-                  key: "name_1",
-                  text: "anh",
-                  audio: [{ path: "", voice_id: 56, sync_data: "" }],
-                },
-              ],
-            },
-            {
-              icon_id: "C1.L94.P4.A2.t2",
-              path: "L559EwHJo4k7TFs9ORWsF1MU6VLcfjEy.png",
-              type_media: 1,
-              props: [
-                {
-                  key: "name_1",
-                  text: "ach",
-                  audio: [{ path: "", voice_id: 56, sync_data: "" }],
-                },
-              ],
-            },
-            {
-              icon_id: "C1.L94.P4.A2.1",
-              path: "krmrD6c1szEvvLBfCX7jF8bl06uhQROQ.png",
-              type_media: 1,
-              props: [
-                {
-                  key: "name_1",
-                  text: "vi\u00ean g\u1ea1ch",
-                  audio: [
-                    {
-                      path: "DHGhtn552PpMA1JKJ2X8cCnVba9Rl7XG.mp3",
-                      voice_id: 56,
-                      sync_data: "",
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              icon_id: "C1.L94.P4.A2.2",
-              path: "dRkJyd8cLneiPZiYMplmqlVpZg2F39J2.png",
-              type_media: 1,
-              props: [
-                {
-                  key: "name_1",
-                  text: "t\u00e1ch tr\u00e0",
-                  audio: [
-                    {
-                      path: "fHurSkLCUKxBVjPFZXjDY6k9DAUbkGi5.mp3",
-                      voice_id: 56,
-                      sync_data: "",
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              icon_id: "C1.L94.P4.A2.3",
-              path: "v5fPo8ca5XqPJfK1OXMpYShEc4BrCUxL.png",
-              type_media: 1,
-              props: [
-                {
-                  key: "name_1",
-                  text: "b\u00e1nh ch\u01b0ng",
-                  audio: [
-                    {
-                      path: "YWB6VLXKBDrYzQRJkrfHOVi0ovCU8zGf.mp3",
-                      voice_id: 56,
-                      sync_data: "",
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              icon_id: "C1.L94.P4.A2.4",
-              path: "4cFNa0FdrrrEC80X0astjiCQ6R791DML.png",
-              type_media: 1,
-              props: [
-                {
-                  key: "name_1",
-                  text: "b\u1ee9c tranh",
-                  audio: [
-                    {
-                      path: "x4AyvepvnWLQVVszpxVodcaV9DTk5pl5.mp3",
-                      voice_id: 56,
-                      sync_data: "",
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              icon_id: "C1.L94.P4.A2.5",
-              path: "tHgddAfPNVogjbH4ve59rdtSummQOvyq.png",
-              type_media: 1,
-              props: [
-                {
-                  key: "name_1",
-                  text: "kh\u00e1ch s\u1ea1n",
-                  audio: [
-                    {
-                      path: "egmyacZfCF9GCt5BxzYuNku0Sty0a83X.mp3",
-                      voice_id: 56,
-                      sync_data: "",
-                    },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-      game_config: {
-        type_question: ["image"],
-        type_answer: ["image", "audio"],
-        back_ground: { icon_id: "C1.L94.P4.A2" },
-        question_title: { icon_id: "C1.L94.P4.A2.Q" },
-        question: [
-          { icon_id: "C1.L94.P4.A2.t1" },
-          { icon_id: "C1.L94.P4.A2.t2" },
-        ],
-        answer: {
-          couple_of_icon: [
-            {
-              icon_id_question: "C1.L94.P4.A2.t1",
-              icon_id_answer: "C1.L94.P4.A2.3",
-            },
-            {
-              icon_id_question: "C1.L94.P4.A2.t1",
-              icon_id_answer: "C1.L94.P4.A2.4",
-            },
-            {
-              icon_id_question: "C1.L94.P4.A2.t2",
-              icon_id_answer: "C1.L94.P4.A2.1",
-            },
-            {
-              icon_id_question: "C1.L94.P4.A2.t2",
-              icon_id_answer: "C1.L94.P4.A2.2",
-            },
-            {
-              icon_id_question: "C1.L94.P4.A2.t2",
-              icon_id_answer: "C1.L94.P4.A2.5",
-            },
-          ],
-        },
-        order_answer: [
-          { icon_id: "C1.L94.P4.A2.1" },
-          { icon_id: "C1.L94.P4.A2.2" },
-          { icon_id: "C1.L94.P4.A2.3" },
-          { icon_id: "C1.L94.P4.A2.4" },
-          { icon_id: "C1.L94.P4.A2.5" },
-        ],
-        answer_number_in_a_row: "5",
+  var signatureEndpoint = 'http://localhost:4000'
+  var apiKey = 'TcCJgxrdSK-54cFnyLSpxQ'
+  var meetingNumber = '85062226987'
+  var role = 0
+  var leaveUrl = 'http://localhost:3000'
+  var userName = 'React'
+  var userEmail = 'dangduong0812@gmail.com'
+  var passWord = 'v9BSUU'
+  // pass in the registrant's token if your meeting or webinar requires registration. More info here:
+  // Meetings: https://marketplace.zoom.us/docs/sdk/native-sdks/web/client-view/meetings#join-registered
+  // Webinars: https://marketplace.zoom.us/docs/sdk/native-sdks/web/client-view/webinars#join-registered
+  var registrantToken = ''
+
+  function getSignature(e) {
+    e.preventDefault();
+
+    fetch(signatureEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        meetingNumber: meetingNumber,
+        role: role
+      })
+    }).then(res => res.json())
+    .then(response => {
+      startMeeting(response.signature)
+    }).catch(error => {
+      console.error(error)
+    })
+  }
+
+  function startMeeting(signature) {
+    document.getElementById('zmmtg-root').style.display = 'block'
+
+    ZoomMtg.init({
+      leaveUrl: leaveUrl,
+      success: (success) => {
+        console.log(success)
+
+        ZoomMtg.join({
+          signature: signature,
+          meetingNumber: meetingNumber,
+          userName: userName,
+          apiKey: apiKey,
+          userEmail: userEmail,
+          passWord: passWord,
+          tk: registrantToken,
+          success: (success) => {
+            console.log(success)
+          },
+          error: (error) => {
+            console.log(error)
+          }
+        })
+
       },
-    }
-  ;
-
-  useEffect(() => {
-    
-  }, []);
+      error: (error) => {
+        console.log(error)
+      }
+    })
+  }
 
   return (
-    <>
-      {/* <MultipleChoice/> */}
-      {/* <DragAndDropImageContainer data={data}></DragAndDropImageContainer> */}
-      <DrawingBoard/>
-    </>
+    <div className="App">
+      <main>
+        <h1>Zoom Meeting SDK Sample React</h1>
+
+        <button onClick={getSignature}>Join Meeting</button>
+      </main>
+    </div>
   );
 }
 

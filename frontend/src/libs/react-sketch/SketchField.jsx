@@ -834,8 +834,8 @@ class SketchField extends PureComponent {
     let canvasDivStyle = Object.assign(
       {},
       style ? style : {},
-      width ? { width: width } : {},
-      height ? { height: height } : { height: 512 }
+      width ? { width: 750 } : {},
+      height ? { height: 750 } : { height: 512 }
     );
     return (
       <div
