@@ -16,17 +16,15 @@ const FooterComponent = ({
 }) => {
   return (
     <Footer>
-      <div
-        className="text-right position-relative pr-3 d-flex justify-content-end align-items-center"
-        style={{ zIndex: "12" }}
-      >
+      <div style={{ zIndex: "12" }}>
         <button
+          style={{ backgroundColor: "#00c2f3" }}
           className={`${
             isDislabeledResult ? "monkey-bg-gray" : "monkey-bg-blue"
           } btn monkey-color-white pr-3 pl-3 pt-2 pb-2 monkey-fz-20`}
           onClick={onCheckAnswer}
         >
-          Lam lai
+          Kiểm tra
         </button>
       </div>
     </Footer>
@@ -36,10 +34,10 @@ export default FooterComponent;
 
 const Footer = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: -50px;
   right: 0;
-  padding: 15px;
+  /* padding: 15px; */
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
 `;
