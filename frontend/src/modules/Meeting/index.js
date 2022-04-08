@@ -451,14 +451,9 @@ export default function Meeting() {
       },
     ],
   };
-  const [show, setShow] = useState(true);
-  const [showBoard, setShowBoard] = useState(false);
-  const [showBooktoll, setShowBooktoll] = useState(false);
+  const [show, setShow] = useState(0);
   const url = useParams();
 
-  useEffect(() => {
-    setShowBooktoll();
-  }, [setShowBooktoll]);
   return (
     <>
       <div className="student">
@@ -466,44 +461,27 @@ export default function Meeting() {
         <div className="student-share">
           <div className="containerr">
             <div className="row">
-              {show && <DrapAndDropImageContainer data={data} />}
+              {show == 2 && <DrapAndDropImageContainer data={data} />}
               {/* {show && <MatchBackGroundContainer data={data1} dataDefault={data1}/>} */}
-              <Quiz></Quiz>
+              {/* <Quiz></Quiz> */}
 
-
-              {/* {showBoard && <BoardContainer />} */}
+              {show == 1 && <BoardContainer />}
               {/* {show && <DrapAndDropImageContainer data={data} />} */}
               {/* {show && (
                 <MatchBackGroundContainer data={data1} dataDefault={data1} />
               )} */}
 
-              {/* {showBoard && <Booktoll />} */}
+              {show == 1 && <Booktoll />}
               {/* {show && <DrapAndDropImageContainer data={data} />}
               {show && (
                 <MatchBackGroundContainer data={data1} dataDefault={data1} />
               )} */}
-
-              {showBoard && (
-                <Booktoll
-                  showBooktoll={showBooktoll}
-                  setShowBooktoll={setShowBooktoll}
-                />
-              )}
-              {showBoard && <BoardContainer />}
-
             </div>
           </div>
         </div>
       </div>
 
-      <Footer
-        data={data}
-        show={show}
-        setShow={setShow}
-        showBoard={showBoard}
-        setShowBoard={setShowBoard}
-        showBooktoll={showBooktoll}
-      />
+      <Footer data={data} show={show} setShow={setShow} />
     </>
   );
 }
