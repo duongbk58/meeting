@@ -6,8 +6,9 @@ import Footer from "./Footer";
 import Header from "./Header";
 import DrapAndDropImageContainer from "components/games/Dnd/DragAndDropImageContainer";
 import MatchBackGroundContainer from "components/games/MatchBackGround/MatchBackGroundContainer";
-import Quiz from "components/games/Quiz";
+
 import BoardContainer from "modules/BoardContainer/BoardContainer";
+import Quiz from "components/games/Quiz";
 
 export default function Meeting() {
   let data = {
@@ -457,23 +458,22 @@ export default function Meeting() {
     console.log(url);
   }, [url]);
   return (
-    <div className="student">
-      <div className="logo"></div>
+    <>
+      <div className="student">
+        <Header />
 
-      <Header />
-
-      <div className="student-share">
-        <div className="containerr">
-          <div className="row">
-            {/* {show && <DrapAndDropImageContainer data={data} />} */}
-            {/* {show && <MatchBackGroundContainer data={data1} dataDefault={data1}/>} */}
-            <Quiz></Quiz>
-              {showBoard && <BoardContainer />}
+        <div className="student-share">
+          <div className="containerr">
+            <div className="row">
               {/* {show && <DrapAndDropImageContainer data={data} />} */}
-              {show && (
+              {/* {show && <MatchBackGroundContainer data={data1} dataDefault={data1}/>} */}
+              <Quiz></Quiz>
+              {/* {showBoard && <BoardContainer />} */}
+              {/* {show && <DrapAndDropImageContainer data={data} />} */}
+              {/* {show && (
                 <MatchBackGroundContainer data={data1} dataDefault={data1} />
-              )}
-            </>
+              )} */}
+            </div>
           </div>
         </div>
       </div>
@@ -485,6 +485,6 @@ export default function Meeting() {
         showBoard={showBoard}
         setShowBoard={setShowBoard}
       />
-    </div>
+    </>
   );
 }

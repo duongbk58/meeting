@@ -75,7 +75,7 @@ export default function Login() {
 
               <button
                 className="btnn"
-                onClick={() => history.push(/meeting/${name})}
+                onClick={() => history.push(`/meeting/${name}`)}
               >
                 Submit
               </button>
