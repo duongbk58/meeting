@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Stylemeeting.scss";
 import { useParams } from "react-router-dom";
 
@@ -10,8 +10,13 @@ import MatchBackGroundContainer from "components/games/MatchBackGround/MatchBack
 import BoardContainer from "modules/BoardContainer/BoardContainer";
 import Booktoll from "modules/Booktoll";
 import Quiz from "components/games/Quiz";
+import socketIOClient from "socket.io-client";
+const host = "http://localhost:3000";
 
 export default function Meeting() {
+  const socketRef = useRef();
+  const messagesEnd = useRef();
+
   let data = {
     game_id: 477,
     icon_list: [
@@ -451,10 +456,20 @@ export default function Meeting() {
       },
     ],
   };
-  const [show, setShow] = useState(0);
+  const [show, setShow] = useState(1);
   const url = useParams();
 
   let { name } = useParams();
+
+  useEffect(() => {
+    socketRef.current = socketIOClient.connect(host);
+    socketRef.current.on("sendDataServerShow", (dataGot) => {
+      setShow(dataGot);
+    });
+    return () => {
+      socketRef.current.disconnect();
+    };
+  }, [show]);
 
   return (
     <>

@@ -23,32 +23,33 @@ socketIo.on("connection", (socket) => {
   });
   //game dnd
   socket.on("sendDataListQuestion", function (data) {
-    console.log(data);
     socketIo.emit("sendDataServerListQuestion", { data });
   });
   socket.on("sendDataListAnswer", function (data) {
-    console.log(data);
     socketIo.emit("sendDataServerListAnswer", { data });
   });
   //end game dnd
 
   //game quiz
   socket.on("sendDataListQuiz", function (data) {
-    console.log(data);
     socketIo.emit("sendDataServerListQuiz", { data });
+  });
+  //end game quiz
+
+  //game quiz
+  socket.on("sendDataShow", function (data) {
+    socketIo.emit("sendDataServerShow", data);
   });
   //end game quiz
 
   //game matching
   socket.on("sendDataListLine", function (data) {
-    console.log(data);
     socketIo.emit("sendDataServerListLine", { data });
   });
   //end game matching
 
   //dash board
   socket.on("sendDataDashBoard", function (data) {
-    console.log(data);
     socketIo.emit("sendDataServerDashBoard", data);
   });
   //end dash board
