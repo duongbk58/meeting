@@ -59,10 +59,11 @@ const PAnswer = styled.div`
   margin: 5px;
 `;
 const Checkbox = styled.label`
+  font-size: 26px;
   margin-top: 10px;
   &.container {
     position: relative;
-    padding-left: 28px;
+    padding-left: 35px;
     input {
       display: none;
       &:checked ~ .checkmark {
@@ -79,7 +80,7 @@ const Checkbox = styled.label`
     }
     .checkmark {
       position: absolute;
-      top: 15px;
+      top: 20px;
       transform: translateY(-50%);
       left: 8px;
       height: 20px;

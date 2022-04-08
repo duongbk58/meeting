@@ -468,15 +468,15 @@ export default function Meeting() {
             <div className="row">
               {/* {show && <DrapAndDropImageContainer data={data} />} */}
               {/* {show && <MatchBackGroundContainer data={data1} dataDefault={data1}/>} */}
-              {/* <Quiz></Quiz> */}
+              <Quiz></Quiz>
 
-              {/* {showBoard && <BoardContainer />}
-              {show && <DrapAndDropImageContainer data={data} />}
-              {show && (
+              {/* {showBoard && <BoardContainer />} */}
+              {/* {show && <DrapAndDropImageContainer data={data} />} */}
+              {/* {show && (
                 <MatchBackGroundContainer data={data1} dataDefault={data1} />
               )} */}
 
-              {showBoard && <Booktoll />}
+              {/* {showBoard && <Booktoll />} */}
             </div>
           </div>
         </div>
