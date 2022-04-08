@@ -14,6 +14,7 @@ const ButtonReset = ({
     <div className={`${className} text-right pr-3 pl-3`}>
       <button
         onClick={() => onResetData()}
+        style={{ backgroundColor: "#00c2f3" }}
         disabled={isDislabeled}
         className={`${
           isDislabeled ? "monkey-bg-gray" : "monkey-bg-blue"
@@ -27,10 +28,7 @@ const ButtonReset = ({
         target="tooltip-reset-drap-drop"
         toggle={toggle}
       >
-        {
-          BOOK_LANGUAGE.filter((ele) => ele.id == languageBook)[0]
-            ?.buttonRefresh
-        }
+        Làm lại
       </Tooltip>
     </div>
   );
