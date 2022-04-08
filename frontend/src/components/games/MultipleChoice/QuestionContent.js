@@ -40,7 +40,7 @@ export default function QuestionContent({ data, onClickAudio }) {
               data?.question?.props && (
                 <p
                   className="text-left font-weight-bold"
-                  style={{ marginLeft: 25 }}
+                  style={{ fontSize: "26px" }}
                 >
                   {data?.question?.props[0]?.text}
                 </p>

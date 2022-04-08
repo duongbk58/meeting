@@ -25,7 +25,7 @@ export default function CheckAnswer({
         const color = getColor(showCorrectAnswer, question?.isCorrect);
         return (
           <span className="mx-3">
-            <Button
+            {/* <Button
               type="button"
               onClick={() => onChangeQuestion(index)}
               backgroundColor={color}
@@ -34,7 +34,7 @@ export default function CheckAnswer({
               }}
             >
               {index + 1}
-            </Button>
+            </Button> */}
           </span>
         );
       })}

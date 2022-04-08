@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-export default function ProgressBar({ strokeWidth, questions }) {
+export default function ProgressBar({
+  strokeWidth,
+  questions,
+  activeQuestionIndex,
+}) {
   const [countSelectedAnswer, setCountSelectedAnswer] = useState(0);
 
   useEffect(() => {
@@ -26,12 +30,12 @@ export default function ProgressBar({ strokeWidth, questions }) {
   };
 
   return (
-    <div className="d-flex justify-content-center my-3">
+    <div className="d-flex justify-content-end ">
       <ProcessCirle
         className={"CircularProgressbar"}
         viewBox="0 0 100 100"
-        width={150}
-        height={150}
+        width={100}
+        height={100}
       >
         <path
           className="CircularProgressbar-trail"

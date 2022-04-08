@@ -10,31 +10,49 @@ const MultipleChoice = ({
   activeQuestionIndex,
   questions,
   setQuestions,
+  handleToNextQuestion,
 }) => {
-  const { register, handleSubmit, setValue, getValues } = useForm();
+  const { register, handleSubmit, setValue, getValues, reset } = useForm();
 
   useEffect(() => {
-    setValue("selectedAnswer", data?.selectedAnswer);
+    console.log(data);
+    // setValue("selectedAnswer", data?.selectedAnswer);
   }, [data]);
+  console.log("getValue", getValues());
 
-  console.log("question", data);
-
-  console.log("activeQuestionIndex", activeQuestionIndex);
-
+  // const [checked, setChecked] = useState(data.selectedAnswer);
   const [checked, setChecked] = useState(false);
-  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
 
-  const _handleSubmit = (data) => {
-    console.log("submit", data);
-    const selected = data;
+  const [showNext, setShowNext] = useState(false);
+
+  const _handleSubmit = (dataForm) => {
+    let isCorrect = 1;
+    setChecked(true);
+    const check = data.answers.find((pre) => pre.is_correct).answer_id;
+    if (check == dataForm.selectedAnswer) {
+      isCorrect = 2;
+    } else {
+    }
+    const selected = dataForm;
     setQuestions(
       questions.map((question, _index) =>
-        _index === activeQuestionIndex ? { ...question, ...selected } : question
+        _index === activeQuestionIndex
+          ? { ...question, ...selected, isCorrect: isCorrect }
+          : question
       )
     );
+    setShowNext(true);
   };
-
-  const handlePlaying = () => {};
+  const goToNextQuestion = () => {
+    handleToNextQuestion(activeQuestionIndex + 1);
+    setShowNext(false);
+    reset();
+  };
+  const handlePlaying = () => {
+    const formValues = getValues();
+    setChecked(false);
+    // onPlaying(formValues.selectedAnswer === data?.selectedAnswer);
+  };
 
   return (
     <>
@@ -57,7 +75,13 @@ const MultipleChoice = ({
               })}
             </div>
           </div>
-          <ButtonCheck type="submit">Kiểm tra</ButtonCheck>
+          {!showNext ? (
+            <ButtonCheck type="submit">Kiểm tra</ButtonCheck>
+          ) : (
+            <ButtonCheck onClick={() => goToNextQuestion()}>
+              Tiếp tục
+            </ButtonCheck>
+          )}
         </div>
       </form>
     </>
