@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import _ from "lodash";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -11,6 +11,8 @@ import { AUDIO_ERROR, AUDIO_SUCCESS } from "../../../constants/type";
 import TitleQuestion from "./components/TitleQuestion";
 import { formatQuestionTitle } from "../Dnd/selection";
 import AlertReportGameComponent from "./components/AlertReportGameComponent";
+import socketIOClient from "socket.io-client";
+const host = "http://localhost:3000";
 
 const DrapAndDropImageContainer = ({ data, objectId }) => {
   const [listAnswer, setStateListAnswer] = useState(formatListDataAnswer(data));
@@ -30,6 +32,25 @@ const DrapAndDropImageContainer = ({ data, objectId }) => {
   const [inputData, setInputData] = useState({});
   useEffect(() => {}, [data, listAnswer, listQuestion]);
 
+  const socketRef = useRef();
+  const messagesEnd = useRef();
+
+  useEffect(() => {
+    socketRef.current = socketIOClient.connect(host);
+
+    socketRef.current.on("getId", (data) => {});
+
+    socketRef.current.on("sendDataServerListQuestion", (dataGot) => {
+      setStateListQuestion(dataGot.data);
+    });
+    socketRef.current.on("sendDataServerListAnswer", (dataGot) => {
+      setStateListAnswer(dataGot.data);
+    });
+
+    return () => {
+      socketRef.current.disconnect();
+    };
+  }, []);
   useEffect(() => {
     setInputData({ ...data.game_config });
   }, [data]);
@@ -94,6 +115,8 @@ const DrapAndDropImageContainer = ({ data, objectId }) => {
     }
     setStateListQuestion(dataListQuestion);
     setStateListAnswer(dataListAnswer);
+    socketRef.current.emit("sendDataListQuestion", dataListQuestion);
+    socketRef.current.emit("sendDataListAnswer", dataListAnswer);
 
     setTimeout(function () {
       setStateSrcAudio("");
