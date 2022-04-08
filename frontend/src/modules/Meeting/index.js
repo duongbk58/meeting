@@ -6,8 +6,11 @@ import Footer from "./Footer";
 import Header from "./Header";
 import DrapAndDropImageContainer from "components/games/Dnd/DragAndDropImageContainer";
 import MatchBackGroundContainer from "components/games/MatchBackGround/MatchBackGroundContainer";
+
 import BoardContainer from "modules/BoardContainer/BoardContainer";
 import Booktoll from "modules/Booktoll";
+import Quiz from "components/games/Quiz";
+
 
 export default function Meeting() {
   let data = {
@@ -458,22 +461,30 @@ export default function Meeting() {
     console.log(url);
   }, [url]);
   return (
-    <div className="student">
-      <div className="logo"></div>
-
-      <Header />
+    <>
+      <div className="student">
+        <Header />
 
       <div className="student-share">
         <div className="containerr">
           <div className="row">
-            <>
+      
+        <div className="student-share">
+          <div className="containerr">
+            <div className="row">
+              {/* {show && <DrapAndDropImageContainer data={data} />} */}
+              {/* {show && <MatchBackGroundContainer data={data1} dataDefault={data1}/>} */}
+              <Quiz></Quiz>
+
               {/* {showBoard && <BoardContainer />} */}
               {/* {show && <DrapAndDropImageContainer data={data} />} */}
               {/* {show && (
                 <MatchBackGroundContainer data={data1} dataDefault={data1} />
               )} */}
+
               {showBoard && <Booktoll />}
-            </>
+            </div>
+
           </div>
         </div>
       </div>
@@ -487,6 +498,6 @@ export default function Meeting() {
         setShowBooktoll={setShowBooktoll}
         showBooktoll={showBooktoll}
       />
-    </div>
+    </>
   );
 }
