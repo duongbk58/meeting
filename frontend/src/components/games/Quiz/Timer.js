@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import Ratings from "./Ratings";
 
 export default function Timer() {
   const [second, setSecond] = useState(0);
@@ -24,13 +25,16 @@ export default function Timer() {
     }
   }, [minute]);
   return (
-    <TimerWrapper className="mx-auto my-3 d-flex justify-content-center align-items-center">
-      <Time className="d-block text-center">
-        <Span>{hour >= 10 ? hour : "0" + hour}</Span> :
-        <Span>{minute >= 10 ? minute : "0" + minute}</Span> :
-        <Span>{second >= 10 ? second : "0" + second}</Span>
-      </Time>
-    </TimerWrapper>
+    <>
+      <TimerWrapper className="mx-auto my-3 d-flex justify-content-center align-items-center">
+        <Time className="d-block text-center">
+          <Span>{hour >= 10 ? hour : "0" + hour}</Span> :
+          <Span>{minute >= 10 ? minute : "0" + minute}</Span> :
+          <Span>{second >= 10 ? second : "0" + second}</Span>
+        </Time>
+      </TimerWrapper>
+      <Ratings />
+    </>
   );
 }
 const TimerWrapper = styled.div`

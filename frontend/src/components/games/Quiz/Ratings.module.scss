@@ -1,0 +1,45 @@
+.main {
+  background-color: bisque;
+  border-radius: 10px;
+  border: 5px solid #161aec;
+  ul {
+    background-color: rgb(74, 49, 185);
+    width: 100%;
+    height: auto;
+    padding-left: 0px !important;
+  }
+  li {
+    position: relative;
+    border-bottom: 1px solid #d7d7d7;
+    list-style: none;
+    color: black;
+    font-family: "Pacifico", cursive;
+    background-color: rgb(74, 49, 185);
+    margin: 10px;
+    font-size: 13px;
+  }
+  li {
+    padding: 15px 0;
+  }
+  li:first-child {
+    padding-top: 20px;
+  }
+  li:last-child {
+    padding-bottom: 20px;
+  }
+  .stt {
+    padding: 3px 10px;
+    background-color: aqua;
+    border-radius: 50%;
+    color: aliceblue;
+    margin-right: 5px;
+  }
+}
+.trophy {
+  position: absolute;
+  right: 2px;
+  i {
+    color: #c5f009;
+    font-size: 23px;
+  }
+}
