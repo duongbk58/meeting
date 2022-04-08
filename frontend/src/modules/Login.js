@@ -1,20 +1,15 @@
-import React from "react";
-import a from "./StyleLogin.scss";
+import React, { useState } from "react";
+import "./StyleLogin.scss";
 // import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 // import { BrowserRouter as Routes } from "react-router-dom";
-import { Link, Switch } from "react-router-dom";
+import { Link, Switch, useHistory } from "react-router-dom";
 
 export default function Login() {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
   const onSubmit = (data) => {};
+  const [name, setName] = useState();
+  const history = useHistory();
 
-  console.log(watch("example"));
   return (
     <div className="main">
       <div className="navbar containerr">
@@ -65,17 +60,25 @@ export default function Login() {
               <div>
                 <h2>Login</h2>
               </div>
-              <input type="email" name="email" placeholder="User name" />
+              <input
+                value={name}
+                type="email"
+                name="email"
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+                placeholder="User name"
+              />
               <br />
-              <input type="password" name="password" placeholder="Password" />
+              <input type="password" name="Code" placeholder="Code" />
               <br />
-              <button className="btnn">Submit</button>
 
-              <p className="link">
-                Don't have an account
-                <br />
-                <Link to="#">Sign up here</Link>
-              </p>
+              <button
+                className="btnn"
+                onClick={() => history.push(`/meeting/${name}`)}
+              >
+                Submit
+              </button>
             </div>
           </div>
         </div>

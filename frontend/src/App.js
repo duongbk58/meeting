@@ -15,7 +15,6 @@ function App() {
   const socketRef = useRef();
   const messagesEnd = useRef();
 
- 
   useEffect(() => {
     socketRef.current = socketIOClient.connect(host);
 
@@ -78,7 +77,7 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/meeting">
+          <Route path="/meeting/:name">
             <Meeting />
           </Route>
         </Switch>
