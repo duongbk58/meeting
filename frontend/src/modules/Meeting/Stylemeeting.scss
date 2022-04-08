@@ -44,7 +44,7 @@
     }
   }
   .student-share {
-    height: 75vh;
+    min-height: 75vh;
   }
 
   .containerr {
@@ -70,6 +70,7 @@
     text-align: center;
     justify-content: center;
     line-height: 50px;
+    margin-top: 30px;
   }
 
   .slick-dots li {
