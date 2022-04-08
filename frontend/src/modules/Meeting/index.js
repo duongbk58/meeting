@@ -454,6 +454,8 @@ export default function Meeting() {
   const [show, setShow] = useState(0);
   const url = useParams();
 
+  let { name } = useParams();
+
   return (
     <>
       <div className="student">
@@ -463,7 +465,8 @@ export default function Meeting() {
             <div className="row">
               {show == 2 && <DrapAndDropImageContainer data={data} />}
               {/* {show && <MatchBackGroundContainer data={data1} dataDefault={data1}/>} */}
-              <Quiz></Quiz>
+              
+              {show == 3 && <Quiz name={name}/>}
 
               {show == 1 && <BoardContainer />}
               {/* {show && <DrapAndDropImageContainer data={data} />} */}

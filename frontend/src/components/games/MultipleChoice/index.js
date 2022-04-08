@@ -4,6 +4,8 @@ import { onFormatDataGameConfig } from "../MatchBackGround/selection";
 import AnswerItem from "./AnswerItem";
 import QuestionContent from "./QuestionContent";
 import styled from "styled-components";
+import socketIOClient from "socket.io-client";
+const host = "http://localhost:3000";
 
 const MultipleChoice = ({
   data,
@@ -11,16 +13,31 @@ const MultipleChoice = ({
   questions,
   setQuestions,
   handleToNextQuestion,
+  name
 }) => {
   const { register, handleSubmit, setValue, getValues, reset } = useForm();
 
+  const [listRank, setListRank] = useState([]);
+
+  useEffect(() => {
+    
+  }, []);
+
+  const socketRef = useRef();
+  const messagesEnd = useRef();
+
   useEffect(() => {
     console.log(data);
-    // setValue("selectedAnswer", data?.selectedAnswer);
   }, [data]);
-  console.log("getValue", getValues());
 
-  // const [checked, setChecked] = useState(data.selectedAnswer);
+  useEffect(() => {
+    socketRef.current = socketIOClient.connect(host);
+
+    return () => {
+      socketRef.current.disconnect();
+    };
+  }, []);
+
   const [checked, setChecked] = useState(false);
 
   const [showNext, setShowNext] = useState(false);
@@ -31,8 +48,10 @@ const MultipleChoice = ({
     const check = data.answers.find((pre) => pre.is_correct).answer_id;
     if (check == dataForm.selectedAnswer) {
       isCorrect = 2;
-    } else {
-    }
+    } 
+
+    socketRef.current.emit("sendDataListQuiz", {name: name, isCorrect: isCorrect == 2 ? 1 : 0});
+
     const selected = dataForm;
     setQuestions(
       questions.map((question, _index) =>
@@ -51,7 +70,6 @@ const MultipleChoice = ({
   const handlePlaying = () => {
     const formValues = getValues();
     setChecked(false);
-    // onPlaying(formValues.selectedAnswer === data?.selectedAnswer);
   };
 
   return (

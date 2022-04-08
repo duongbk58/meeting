@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Ratings from "./Ratings";
 
-export default function Timer() {
+export default function Timer({listRank}) {
   const [second, setSecond] = useState(0);
   const [minute, setMinute] = useState(0);
   const [hour, setHour] = useState(0);
@@ -33,7 +33,7 @@ export default function Timer() {
           <Span>{second >= 10 ? second : "0" + second}</Span>
         </Time>
       </TimerWrapper>
-      <Ratings />
+      <Ratings listRank={listRank}/>
     </>
   );
 }

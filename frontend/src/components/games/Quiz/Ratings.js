@@ -1,35 +1,39 @@
 import React from "react";
 import styled from "./Ratings.module.scss";
+import _ from "lodash";
 
-const ratingsMember = [
-  { UserName: "Nguyễn Đăng Dương", Point: "10 điểm" },
-  {
-    UserName: "Nguyễn Mai Anh",
-    Point: "9.75 điểm",
-  },
-  { UserName: "KT_Hậu", Point: "9.5 điểm" },
-  { UserName: "KT_Hiếu", Point: "9.25 điểm" },
-  { UserName: "KT_Đức", Point: "9 điểm" },
-];
-export default function Ratings() {
+export default function Ratings({listRank}) {
+    
+  let result = [];
+
+  listRank.forEach(function (a) {
+        if ( !this[a.name] && !this[a.shape] ) {
+            this[a.name] = { name: a.name, isCorrect: 0 };
+            result.push(this[a.name]);
+        } 
+        this[a.name].isCorrect += a.isCorrect;
+    }, Object.create(null));
+    result.sort((a, b) => (a.isCorrect < b.isCorrect) ? 1 : -1)
+
   return (
     <div className={`${styled.main} col-md-12`}>
       <ul>
-        {ratingsMember.map((index, number) => (
-          <>
-            <li className="d-flex">
-              <span className={styled.stt}>{number + 1}</span>
-              {index.UserName}
-              <div className={styled.trophy}>
-                <i class="fa fa-trophy" aria-hidden="true"></i>
-              </div>
-            </li>
-          </>
-        ))}
+        {
+          result.map((index, number) => (
+            <>
+              <li className="d-flex" style={{justifyContent:"center", fontSize:"18px"}}> 
+                <span>{number + 1}. {index.name}</span>
+                <div className={styled.trophy}>
+                  {number == 0 && (
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                  )}
+                </div>
+              </li>
+            </>
+          ))
+        }
+        
       </ul>
-      <h3 className="text-center">
-        Top {ratingsMember.length} người chơi giỏi nhất
-      </h3>
     </div>
   );
 }

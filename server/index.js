@@ -32,6 +32,13 @@ socketIo.on("connection", (socket) => {
   });
   //end game dnd
 
+  //game quiz
+  socket.on("sendDataListQuiz", function (data) {
+    console.log(data);
+    socketIo.emit("sendDataServerListQuiz", { data });
+  });
+  //end game quiz
+
   //game matching
   socket.on("sendDataListLine", function (data) {
     console.log(data);
