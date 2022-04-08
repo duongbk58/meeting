@@ -3,13 +3,9 @@ import { fabric } from "fabric";
 import styled from "styled-components";
 import reactImageSize from "react-image-size";
 import _ from "lodash";
-import { connect, shallowEqual } from "react-redux";
-import { bindActionCreators } from "redux";
 import FooterComponent from "./components/FooterComponent";
 
-import {
-  onFormatDataGameConfig,
-} from "./selection";
+import { onFormatDataGameConfig } from "./selection";
 
 import {
   TYPE_ENGLISH,
@@ -19,18 +15,11 @@ import {
 import { getPosition } from "./selection";
 import ButtonReset from "./components/ButtonReset";
 import socketIOClient from "socket.io-client";
+import { shallowEqual } from "react-redux";
+import AlertComponent from "./components/AlertComponent";
 const host = "http://localhost:3000";
 
-const MatchBackGroundContainer = ({
-  data,
-  dataDefault,
-  objectId,
-  alert,
-  onDispatchDataAlert,
-  languageBook,
-  onDispatchIsClickRefresh,
-  onDispatchIsClickSubmitAnswer,
-}) => {
+const MatchBackGroundContainer = ({ data, dataDefault, objectId, alert }) => {
   const [backgroundList, setStateBackgroundList] = useState(
     data.background_list.backgroundList[0].value[0].touch
   );
@@ -59,6 +48,7 @@ const MatchBackGroundContainer = ({
   const [totalQuestion, setTotalQuestion] = useState(0);
 
   const [showCheckAnswer, setShowCheckAnswer] = useState(true);
+  const [showAlert, setShowAlert] = useState(false);
 
   function removeItem(arr, item) {
     return arr.filter((f) => f !== item);
@@ -152,10 +142,10 @@ const MatchBackGroundContainer = ({
 
     canvas.renderAll();
 
-    let listLine = []
-    arrayDataLine.forEach((line) => listLine.push(line.index))
-   
-    let lastLine = listLine[listLine.length - 1]
+    let listLine = [];
+    arrayDataLine.forEach((line) => listLine.push(line.index));
+
+    let lastLine = listLine[listLine.length - 1];
 
     if (arrayDataLine.length > 0) {
       arrayDataLine.map((line) => {
@@ -231,13 +221,12 @@ const MatchBackGroundContainer = ({
 
     canvas.on("mouse:down", (e) => onMouseDown(e));
 
-    return () => {
-    };
+    return () => {};
   }, [backgroundList, dataLine, widthImage, heightImage]);
 
   const onCheckAnswer = () => {
     setShowCheckAnswer(false);
-    onDispatchIsClickSubmitAnswer(true);
+    setShowAlert(true);
     if (listResult.length === 0) {
       return;
     }
@@ -302,7 +291,7 @@ const MatchBackGroundContainer = ({
     setTotalQuestion(
       answerCorrect.length < totalLine ? totalLine : answerCorrect.length
     );
-    setCountCorrect(numberAnswerCorrect);
+    setCountCorrect(numberAnswerCorrect / 2);
 
     canvas.renderAll();
     let input = _.cloneDeep(inputData);
@@ -328,7 +317,7 @@ const MatchBackGroundContainer = ({
 
   const onResetData = () => {
     setShowCheckAnswer(true);
-    onDispatchIsClickRefresh(true);
+    setShowAlert(false);
     const dataLine = canvas.getObjects("line");
     dataLine.forEach((item) => {
       canvas.remove(item);
@@ -346,9 +335,9 @@ const MatchBackGroundContainer = ({
     setStateListResult([]);
   };
 
-  const handleDispatchDataAlert = (dataAlert) => {
-    onDispatchDataAlert(dataAlert);
-  };
+  // const handleDispatchDataAlert = (dataAlert) => {
+  //   onDispatchDataAlert(dataAlert);
+  // };
 
   const onMouseOver = (e, canvas) => {
     if (e.target) {
@@ -363,7 +352,6 @@ const MatchBackGroundContainer = ({
     }
   };
   const onMouseDown = (e) => {
-
     if (!showCheckAnswer) {
       return;
     }
@@ -475,16 +463,10 @@ const MatchBackGroundContainer = ({
           />
           <canvas id="match_background" />
         </MatchBackGroundContainerWrapper>
-        {/* <AlertReportComponent
-        totalQuestion={totalQuestion}
-        countCorrect={countCorrect}
-        alert={alert}
-        handleDispatchDataAlert={handleDispatchDataAlert}
-      /> */}
+
         <WrapperButtonReset>
           <ButtonReset
             isDislabeled={false}
-            languageBook={languageBook}
             onResetData={onResetData}
             className=""
           />
@@ -493,17 +475,21 @@ const MatchBackGroundContainer = ({
       {showCheckAnswer && (
         <FooterComponent
           disabledBoxItem={disabledBoxItem}
-          alert={alert}
-          languageBook={languageBook}
+          // alert={alert}
           onCheckAnswer={onCheckAnswer}
           onResetData={onResetData}
-          isDislabeledResult={!listResult.length > 0}
-          handleDispatchDataAlert={handleDispatchDataAlert}
-          totalQuestion={totalQuestion}
-          countCorrect={countCorrect}
+          isDislabeledResult={listResult.length > 0}
+          // totalQuestion={totalQuestion}
+          // countCorrect={countCorrect}
         />
       )}
-      
+
+      <AlertComponent
+        totalQuestion={totalQuestion}
+        countCorrect={countCorrect}
+        show={showAlert}
+        setShowAlert={setShowAlert}
+      />
     </Fragment>
   );
 };

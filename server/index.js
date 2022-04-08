@@ -14,6 +14,13 @@ socketIo.on("connection", (socket) => {
 
   socket.emit("getId", socket.id);
 
+  socketIo.on("connection", (socket) => {
+    console.log("User Online");
+
+    socket.on("canvas-data", (data) => {
+      socket.broadcast.emit("canvas-data", data);
+    });
+  });
   //game dnd
   socket.on("sendDataListQuestion", function (data) {
     console.log(data);
