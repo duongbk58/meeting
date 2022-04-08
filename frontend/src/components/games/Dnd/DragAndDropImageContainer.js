@@ -10,13 +10,9 @@ import ReactAudioPlayer from "react-audio-player";
 import { AUDIO_ERROR, AUDIO_SUCCESS } from "../../../constants/type";
 import TitleQuestion from "./components/TitleQuestion";
 import { formatQuestionTitle } from "../Dnd/selection";
+import AlertReportGameComponent from "./components/AlertReportGameComponent";
 
-const DrapAndDropImageContainer = ({
-  data,
-  objectId,
-  languageBook,
-  onDispatchIsClickRefresh,
-}) => {
+const DrapAndDropImageContainer = ({ data, objectId }) => {
   const [listAnswer, setStateListAnswer] = useState(formatListDataAnswer(data));
   const [listQuestion, setStateListQuestion] = useState(
     formatListDataQuestion(data)
@@ -50,7 +46,6 @@ const DrapAndDropImageContainer = ({
 
   const onResetData = () => {
     setShowAlert(false);
-    onDispatchIsClickRefresh(true);
     setStateListAnswer(formatListDataAnswer(data));
     setStateListQuestion(formatListDataQuestion(data));
     setStateCountAnswerCorrect(0);
@@ -110,7 +105,12 @@ const DrapAndDropImageContainer = ({
         questionTitle={questionTitle}
         fontSizeTitle={fontSizeTitle}
       />
-      
+      <AlertReportGameComponent
+        show={showAlert}
+        setShowAlert={setShowAlert}
+        totalQuestion={defaultListAnswer.length}
+        countCorrect={countAnswerCorrect}
+      />
       <DndProvider backend={HTML5Backend}>
         <Example
           typeQuestion={typeQuestion}
@@ -128,12 +128,11 @@ const DrapAndDropImageContainer = ({
         controls={true}
       />
       <WrapperButtonReset>
-        {/* <ButtonReset
+        <ButtonReset
           isDislabeled={false}
-          languageBook={languageBook}
           onResetData={onResetData}
           className=""
-        /> */}
+        />
       </WrapperButtonReset>
     </>
   );
@@ -141,17 +140,9 @@ const DrapAndDropImageContainer = ({
 
 const WrapperButtonReset = styled.div`
   position: absolute;
-  top: 40px;
+  top: 0px;
   right: 0px;
-`;
-const PStyle = styled.p`
-  background: #e4f7fe;
-  text-align: center;
-  border: 2px solid #00c2f3;
-  padding: 15px;
-  margin: 13px 30%;
-  font-size: 24px;
-  border-radius: 20px;
+  z-index: 20;
 `;
 
 export default DrapAndDropImageContainer;

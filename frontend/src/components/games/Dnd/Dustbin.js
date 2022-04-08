@@ -86,9 +86,10 @@ export const Dustbin = function Dustbin({
                 {" "}
                 <img
                   src={`${URL_IMAGE_QUESTION}${item.icon[0]?.path}`}
-                  width={widthImage ? widthImage : "150px"}
+                  // width={widthImage ? widthImage : "150px"}
+                  width="150px"
                   height="auto"
-                  style={{borderRadius: "10px"}}
+                  style={{ borderRadius: "10px" }}
                 />
               </span>
             </PStyle>
