@@ -140,8 +140,8 @@ const DrapAndDropImageContainer = ({ data, objectId }) => {
 
 const WrapperButtonReset = styled.div`
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 20px;
+  right: 20px;
   z-index: 20;
 `;
 

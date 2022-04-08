@@ -1,20 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-const Footer = () => {
-  
-  useEffect(() => {
-    
-  }, []);
+const Footer = ({ show, setShow }) => {
+  useEffect(() => {}, []);
   return (
-   <>
-    <div className="student-footer">
+    <>
+      <div className="student-footer">
         <div className="containerr">
           <div className="row">
             <div className="col-lg-3 col-3 wb">
               <i class="fa fa-leanpub" aria-hidden="true"></i>
               Dashboard
             </div>
-            <div className="col-lg-3 col-3 chtt">
+            <div className="col-lg-3 col-3 chtt" onClick={() => setShow(!show)}>
               <i class="fa fa-chain-broken" aria-hidden="true"></i> Interactive
               Questions
             </div>
@@ -27,8 +24,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    
-   </>
+    </>
   );
 };
 
