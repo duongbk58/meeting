@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Booktoll from "modules/Booktoll";
+import { Link, Switch, useHistory } from "react-router-dom";
 
 const Footer = ({
   show,
@@ -30,7 +31,9 @@ const Footer = ({
               <i class="fa fa-video-camera" aria-hidden="true"></i>Video
             </div>
             <div className="col-lg-3 col-3 exit">
-              <i class="fa fa-sign-out" aria-hidden="true"></i>Exit
+              <Link to="/Login">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>Exit
+              </Link>
             </div>
           </div>
         </div>
