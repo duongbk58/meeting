@@ -13,7 +13,14 @@ socketIo.on("connection", (socket) => {
   console.log("New client connected" + socket.id);
 
   socket.emit("getId", socket.id);
+  //canvas
+  socketIo.on("connection", (socket) => {
+    console.log("User Online");
 
+    socket.on("canvas-data", (data) => {
+      socket.emit("canvas-data", data);
+    });
+  });
   //game dnd
   socket.on("sendDataListQuestion", function (data) {
     console.log(data);

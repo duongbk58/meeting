@@ -1,13 +1,16 @@
 import { useEffect } from "react";
 
-const Footer = ({ show, setShow }) => {
+const Footer = ({ show, setShow, setShowBoard, showBoard }) => {
   useEffect(() => {}, []);
   return (
     <>
       <div className="student-footer">
         <div className="containerr">
           <div className="row">
-            <div className="col-lg-3 col-3 wb">
+            <div
+              className="col-lg-3 col-3 wb"
+              onClick={() => setShowBoard(!showBoard)}
+            >
               <i class="fa fa-leanpub" aria-hidden="true"></i>
               Dashboard
             </div>

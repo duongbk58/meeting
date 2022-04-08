@@ -4,6 +4,8 @@ import a from "./Stylemeeting.scss";
 import Footer from "./Footer";
 import Header from "./Header";
 import DrapAndDropImageContainer from "components/games/Dnd/DragAndDropImageContainer";
+import Board from "./Board";
+import Container from "./Container";
 
 export default function Meeting() {
   let data = {
@@ -202,6 +204,7 @@ export default function Meeting() {
       <div className="student-share">
         <div className="containerr">
           <div className="row">
+            <Container />
             {show && <DrapAndDropImageContainer data={data} />}
           </div>
         </div>
