@@ -1,13 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import a from "./Stylemeeting.scss";
 
 import Footer from "./Footer";
 import Header from "./Header";
 import DrapAndDropImageContainer from "components/games/Dnd/DragAndDropImageContainer";
 
-
 export default function Meeting() {
-
   let data = {
     game_id: 477,
     icon_list: [
@@ -194,25 +192,22 @@ export default function Meeting() {
       answer_number_in_a_row: "5",
     },
   };
-
+  const [show, setShow] = useState(false);
   return (
     <div className="student">
       <div className="logo"></div>
 
-      <Header/>      
+      <Header />
 
       <div className="student-share">
         <div className="containerr">
           <div className="row">
-
-            <DrapAndDropImageContainer data={data}/>
-
+            {show && <DrapAndDropImageContainer data={data} />}
           </div>
         </div>
       </div>
 
-      <Footer/>
-
+      <Footer data={data} show={show} setShow={setShow} />
     </div>
   );
 }
