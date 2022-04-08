@@ -463,7 +463,6 @@ export default function Meeting() {
     <>
       <div className="student">
         <Header />
-
         <div className="student-share">
           <div className="containerr">
             <div className="row">
