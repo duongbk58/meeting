@@ -463,7 +463,7 @@ export default function Meeting() {
             <div className="row">
               {show == 2 && <DrapAndDropImageContainer data={data} />}
               {/* {show && <MatchBackGroundContainer data={data1} dataDefault={data1}/>} */}
-              {/* <Quiz></Quiz> */}
+              <Quiz></Quiz>
 
               {show == 1 && <BoardContainer />}
               {/* {show && <DrapAndDropImageContainer data={data} />} */}
