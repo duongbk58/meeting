@@ -9,7 +9,7 @@ const style = {
   marginBottom: "0.6rem",
   float: "left",
   position: "relative",
-  marginLeft: "30px",
+  paddingLeft: "30px",
 };
 
 const TitleQuestion = ({ questionTitle, fontSizeTitle }) => {

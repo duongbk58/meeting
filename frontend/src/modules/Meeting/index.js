@@ -457,8 +457,8 @@ export default function Meeting() {
   const url = useParams();
 
   useEffect(() => {
-    console.log(url);
-  }, [url]);
+    setShowBooktoll();
+  }, [setShowBooktoll]);
   return (
     <>
       <div className="student">
@@ -466,9 +466,10 @@ export default function Meeting() {
         <div className="student-share">
           <div className="containerr">
             <div className="row">
-              {/* {show && <DrapAndDropImageContainer data={data} />} */}
+              {show && <DrapAndDropImageContainer data={data} />}
               {/* {show && <MatchBackGroundContainer data={data1} dataDefault={data1}/>} */}
               <Quiz></Quiz>
+
 
               {/* {showBoard && <BoardContainer />} */}
               {/* {show && <DrapAndDropImageContainer data={data} />} */}
@@ -477,6 +478,19 @@ export default function Meeting() {
               )} */}
 
               {/* {showBoard && <Booktoll />} */}
+              {/* {show && <DrapAndDropImageContainer data={data} />}
+              {show && (
+                <MatchBackGroundContainer data={data1} dataDefault={data1} />
+              )} */}
+
+              {showBoard && (
+                <Booktoll
+                  showBooktoll={showBooktoll}
+                  setShowBooktoll={setShowBooktoll}
+                />
+              )}
+              {showBoard && <BoardContainer />}
+
             </div>
           </div>
         </div>
@@ -488,7 +502,6 @@ export default function Meeting() {
         setShow={setShow}
         showBoard={showBoard}
         setShowBoard={setShowBoard}
-        setShowBooktoll={setShowBooktoll}
         showBooktoll={showBooktoll}
       />
     </>
