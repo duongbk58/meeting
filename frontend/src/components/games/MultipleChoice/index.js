@@ -5,7 +5,7 @@ import AnswerItem from "./AnswerItem";
 import QuestionContent from "./QuestionContent";
 import styled from "styled-components";
 import socketIOClient from "socket.io-client";
-const host = "http://localhost:3000";
+const host = "https://api.meeting.hoc10.vn/";
 
 const MultipleChoice = ({
   data,
