@@ -1,8 +1,9 @@
 import React from "react";
 import socketIOClient from "socket.io-client";
-
 import "./Board.scss";
 
+const heighttt = window.innerHeight;
+const widthttt = window.innerWidth;
 class Board extends React.Component {
   timeout;
   socket = socketIOClient.connect("https://api.meeting.hoc10.vn/");
@@ -88,7 +89,6 @@ class Board extends React.Component {
       },
       false
     );
-
     var root = this;
     var onPaint = function () {
       ctx.beginPath();
@@ -108,7 +108,12 @@ class Board extends React.Component {
   render() {
     return (
       <div class="sketch" id="sketch">
-        <canvas height="900" width="1900" className="board" id="board"></canvas>
+        <canvas
+          height={`${heighttt}px`}
+          width={`${widthttt}px`}
+          className="board"
+          id="board"
+        ></canvas>
       </div>
     );
   }
