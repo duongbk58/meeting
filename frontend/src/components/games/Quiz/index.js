@@ -6,7 +6,7 @@ import MultipleChoice from "../MultipleChoice";
 import { data } from "./dataQuiz";
 import socketIOClient from "socket.io-client";
 import ResultComplete from "./ResultComplete";
-const host = "http://localhost:3000";
+const host = "https://api.meeting.hoc10.vn/";
 
 const Quiz = ({ name }) => {
   const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);

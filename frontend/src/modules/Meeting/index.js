@@ -11,7 +11,7 @@ import BoardContainer from "modules/BoardContainer/BoardContainer";
 import Booktoll from "modules/Booktoll";
 import Quiz from "components/games/Quiz";
 import socketIOClient from "socket.io-client";
-const host = "http://localhost:3000";
+const host = "https://api.meeting.hoc10.vn/";
 
 export default function Meeting() {
   const socketRef = useRef();

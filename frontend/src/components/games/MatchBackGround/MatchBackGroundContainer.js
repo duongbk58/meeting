@@ -17,7 +17,7 @@ import ButtonReset from "./components/ButtonReset";
 import socketIOClient from "socket.io-client";
 import { shallowEqual } from "react-redux";
 import AlertComponent from "./components/AlertComponent";
-const host = "http://localhost:3000";
+const host = "https://api.meeting.hoc10.vn/";
 
 const MatchBackGroundContainer = ({ data, dataDefault, objectId, alert }) => {
   const [backgroundList, setStateBackgroundList] = useState(

@@ -5,7 +5,7 @@ import "./Board.scss";
 
 class Board extends React.Component {
   timeout;
-  socket = socketIOClient.connect("http://localhost:3000");
+  socket = socketIOClient.connect("https://api.meeting.hoc10.vn/");
 
   ctx;
   isDrawing = false;

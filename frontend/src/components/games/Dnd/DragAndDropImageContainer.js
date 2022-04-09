@@ -12,7 +12,7 @@ import TitleQuestion from "./components/TitleQuestion";
 import { formatQuestionTitle } from "../Dnd/selection";
 import AlertReportGameComponent from "./components/AlertReportGameComponent";
 import socketIOClient from "socket.io-client";
-const host = "http://localhost:3000";
+const host = "https://api.meeting.hoc10.vn/";
 
 const DrapAndDropImageContainer = ({ data, objectId }) => {
   const [listAnswer, setStateListAnswer] = useState(formatListDataAnswer(data));

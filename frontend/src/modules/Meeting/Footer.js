@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import Booktoll from "modules/Booktoll";
 import { Link, Switch, useHistory } from "react-router-dom";
 import socketIOClient from "socket.io-client";
-const host = "http://localhost:3000";
+const host = "https://api.meeting.hoc10.vn/";
 
 const Footer = ({ setShow }) => {
   const socketRef = useRef();

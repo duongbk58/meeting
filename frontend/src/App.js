@@ -5,7 +5,7 @@ import Login from "./modules/Login";
 import Meeting from "./modules/Meeting";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-const host = "http://localhost:3000";
+const host = "https://api.meeting.hoc10.vn/";
 
 function App() {
 
